@@ -61,18 +61,40 @@ async function borrowBook(bookId) {
         return;
     }
 
-    const result = await eel.borrow_book(bookId, userId)();
+    const book = await eel.get_book_details(bookId)();
     
-    if (result.success) {
-        Swal.fire({
-            title: 'Success!',
-            text: result.message,
-            icon: 'success'
-        }).then(() => {
-            loadBooks();
-        });
-    } else {
-        Swal.fire('Error', result.message, 'error');
+    const result = await Swal.fire({
+        title: 'Confirm Borrowing',
+        html: `
+            <div class="text-left">
+                <p><strong>Title:</strong> ${book.title}</p>
+                <p><strong>Author:</strong> ${book.author}</p>
+                <p><strong>Genre:</strong> ${book.genre}</p>
+                <p><strong>Published:</strong> ${book.publish_year}</p>
+                <p><strong>Stock Available:</strong> ${book.stock}</p>
+            </div>
+            <p class="mt-3">Are you sure you want to borrow this book?</p>
+        `,
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, Borrow',
+        cancelButtonText: 'Cancel'
+    });
+
+    if (result.isConfirmed) {
+        const borrowResult = await eel.borrow_book(bookId, userId)();
+        
+        if (borrowResult.success) {
+            Swal.fire({
+                title: 'Success!',
+                text: borrowResult.message,
+                icon: 'success'
+            }).then(() => {
+                loadBooks();
+            });
+        } else {
+            Swal.fire('Error', borrowResult.message, 'error');
+        }
     }
 }
 

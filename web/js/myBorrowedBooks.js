@@ -41,17 +41,29 @@ async function loadBorrowedBooks() {
 
 async function returnBook(borrowId) {
     try {
-        const result = await eel.return_book(borrowId)();
-        if (result.success) {
-            Swal.fire({
-                title: 'Success!',
-                text: result.message,
-                icon: 'success'
-            }).then(() => {
-                loadBorrowedBooks();
-            });
-        } else {
-            Swal.fire('Error', result.message, 'error');
+
+        const confirmation = await Swal.fire({
+            title: 'Return Book',
+            text: 'Are you sure you want to return this book?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, Return it',
+            cancelButtonText: 'Cancel'
+        });
+
+        if (confirmation.isConfirmed) {
+            const result = await eel.return_book(borrowId)();
+            if (result.success) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: result.message,
+                    icon: 'success'
+                }).then(() => {
+                    loadBorrowedBooks();
+                });
+            } else {
+                Swal.fire('Error', result.message, 'error');
+            }
         }
     } catch (error) {
         Swal.fire('Error', 'Failed to return book', 'error');
