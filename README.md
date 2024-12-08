@@ -62,7 +62,6 @@ A Python-based project implementing a **Library Management System** using object
    ```bash
    python main.py
 
-
 ## 🛠 Technologies Used
 
 - **Programming Language**: Python
