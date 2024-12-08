@@ -1,0 +1,276 @@
+/* General body and container settings */
+:root {
+  --yellow-color: #ffa407;
+  --black-color: #181818;
+  --white-color: #f6f9ff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--white-color);
+}
+
+.container {
+  background-color: var(--white-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: var(--black-color);
+  border-bottom: 2px solid #495057;
+  color: var(--white-color);
+}
+
+.navbar .navbar-brand {
+  font-weight: bold;
+  color: var(--black-color);
+}
+
+.navbar .nav-link {
+  color: var(--black-color) !important;
+}
+
+.navbar .nav-link:hover {
+  color: var(--yellow-color) !important;
+}
+
+.navbar .btn-light {
+  background-color: var(--yellow-color);
+  color: var(--white-color);
+  border: none;
+}
+
+.navbar .btn-light:hover {
+  background-color: #e0a800;
+}
+
+/* Table styling */
+.table {
+  border: 1px solid var(--black-color);
+  border-radius: 5px;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: center;
+}
+
+.table th {
+  background-color: var(--black-color);
+  color: var(--white-color);
+}
+
+.table-striped tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+.btn-warning {
+  background-color: #f0ad4e;
+  color: #ffffff;
+}
+
+.btn-warning:hover {
+  background-color: #ec971f;
+}
+
+.btn-danger {
+  background-color: #d9534f;
+  color: #ffffff;
+}
+
+.btn-danger:hover {
+  background-color: #c9302c;
+}
+
+.btn-primary {
+  background-color: var(--yellow-color);
+  color: #ffffff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #e0a800;
+}
+
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: #e0a800 !important;
+  box-shadow: 0 0 0 0.25rem rgba(255, 164, 7, 0.5) !important;
+}
+
+.btn-primary:active:focus {
+  box-shadow: 0 0 0 0.25rem rgba(255, 164, 7, 0.5) !important;
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* SweetAlert2 custom styling */
+.swal2-confirm {
+  background-color: var(--yellow-color) !important;
+  color: var(--white-color) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.swal2-confirm:hover {
+  background-color: #e0a800 !important;
+  transform: translateY(-1px);
+}
+
+.swal2-confirm:focus {
+  box-shadow: 0 0 0 3px rgba(255, 164, 7, 0.3) !important;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: var(--yellow-color) !important;
+}
+
+.swal2-styled.swal2-confirm:hover {
+  background-color: #e0a800 !important;
+}
+
+/* Form styling */
+.form-label {
+  font-weight: bold;
+  color: #495057;
+}
+
+.form-control {
+  border-radius: 4px;
+  box-shadow: none;
+  border: 1px solid #ced4da;
+}
+
+.form-select {
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+}
+
+#searchBooks {
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+}
+
+.mt-4 {
+  margin-top: 20px;
+}
+
+.navbar .btn-logout {
+  background-color: #dc3545;
+  color: white;
+}
+
+.navbar .btn-logout:hover {
+  background-color: #c82333;
+}
+
+/* Profile Section */
+.profile-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-section h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.profile-section p {
+  font-size: 16px;
+}
+
+.profile-section button {
+  font-size: 14px;
+}
+
+/* Login page styles */
+.login-body {
+  background-color: var(--white-color);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.login-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.card-title {
+  color: var(--black-color);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.form-control {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 3px rgba(255, 164, 7, 0.2);
+  border-color: var(--yellow-color);
+}
+
+.btn-primary {
+  background-color: var(--yellow-color);
+  border: none;
+  padding: 0.8rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #e0a800;
+  transform: translateY(-2px);
+}
+
+.register-link {
+  color: var(--yellow-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.register-link:hover {
+  color: #e0a800;
+  text-decoration: underline;
+}
+
+.input-group-text {
+  background-color: transparent;
+  border-left: none;
+  cursor: pointer;
+}
+
+.input-group .btn-outline-secondary {
+  border-color: #e0e0e0;
+  color: #666;
+}
+
+.input-group .btn-outline-secondary:hover {
+  background-color: #f8f9fa;
+}
