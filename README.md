@@ -69,13 +69,13 @@ A Python-based project implementing a **Library Management System** using object
 - **Database**: MongoDB
 - **Web Framework**: Eel
 
-##🧩 Object-Oriented Programming Concepts
-##Key Classes
+## 🧩 Object-Oriented Programming Concepts
+## Key Classes
 1. `DatabaseConnection`: Abstract class defining a contract for database connection.
 2. `Database: Implements` connection for MongoDB.
 3. `UserHandler`: Manages user authentication and data.
 
-##Concepts
+## Concepts
 1. **Encapsulation**:
 - Private attributes in classes like `Database` to hide implementation details `(_client)`.
 2. Inheritance:
