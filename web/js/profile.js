@@ -22,9 +22,9 @@ document.getElementById('profileForm').addEventListener('submit', async function
     e.preventDefault();
 
     const userData = {
-        full_name: document.getElementById('fullName').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value
+        full_name: document.getElementById('fullName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim()
     };
 
     const userId = document.getElementById('userId').value;

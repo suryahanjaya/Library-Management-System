@@ -59,6 +59,36 @@ class User(BaseEntity):
     @property
     def role(self):
         return self.__role
+    
+    @property 
+    def email(self):
+        return self.__email
+        
+    @property
+    def phone(self):
+        return self.__phone
+
+    # Setters with validation
+    @full_name.setter
+    def full_name(self, value):
+        if value and len(value.strip()) > 0:
+            self.__full_name = value.strip()
+        else:
+            raise ValueError("Full name cannot be empty")
+            
+    @email.setter
+    def email(self, value):
+        if value and '@' in value and '.' in value:
+            self.__email = value.strip()
+        else:
+            raise ValueError("Invalid email format")
+            
+    @phone.setter
+    def phone(self, value):
+        if value and value.strip().isdigit() and len(value.strip()) >= 10:
+            self.__phone = value.strip()
+        else:
+            raise ValueError("Phone number must be at least 10 digits")
 
     def to_dict(self):
         """ Mengubah User menjadi dictionary """
@@ -279,12 +309,41 @@ def get_user_profile_data(user_id):
 
 @eel.expose
 def update_user_profile_data(user_id, user_data):
-    """ Memperbarui data profil pengguna """
     try:
-        user_repo.update_user(user_id, user_data)
+
+        existing_user = user_repo.get_user_by_id(user_id)
+        if not existing_user:
+            return {"success": False, "message": "User not found"}
+            
+        user = User(
+            full_name=existing_user['full_name'],
+            username=existing_user['username'],
+            password=existing_user['password'],
+            phone=existing_user['phone'],
+            email=existing_user['email'],
+            role=existing_user['role']
+        )
+        
+        if 'full_name' in user_data:
+            user.full_name = user_data['full_name']
+        if 'email' in user_data:
+            user.email = user_data['email']
+        if 'phone' in user_data:
+            user.phone = user_data['phone']
+
+        update_data = {
+            'full_name': user.full_name,
+            'email': user.email,
+            'phone': user.phone
+        }
+        user_repo.update_user(user_id, update_data)
         return {"success": True, "message": "Profile updated successfully"}
+        
+    except ValueError as ve:
+        return {"success": False, "message": str(ve)}
     except Exception as e:
         return {"success": False, "message": str(e)}
+
 
 @eel.expose
 def add_book(book_data):
