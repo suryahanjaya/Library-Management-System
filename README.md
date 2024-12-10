@@ -1,6 +1,6 @@
 # Library Management System
 
-A Python-based project implementing a **Library Management System** using object-oriented programming (OOP) concepts and web frontend integration with **Eel**.
+BOOKTOPIA is a library management system designed to facilitate the management of books, users, and borrowing transactions. The application allows administrators to manage books, add new users, and track borrowing activities, while users can browse available books, borrow them, and manage their profiles. The system is built using Python and MongoDB, providing a robust backend for data management and a user-friendly interface for interaction.
 
 ## 🎯 Goals
 
@@ -52,21 +52,26 @@ A Python-based project implementing a **Library Management System** using object
 
 ### Installation
 1. Clone this repository or download the project files.
-2. Navigate to the project directory:
    ```bash
-   cd Library-Management-System-main
-3. Install dependencies:
+   git clone https://github.com/suryahanjaya/Library-Management-System
+   cd BOOKTOPIA
+2. Install dependencies:
    ```bash
    pip install -r requirements.txt
-3. Start the application:
+3. Set Up MongoDB:
+   Ensure you have MongoDB installed and running on your local machine. The default connection string used in the project is mongodb://localhost:27017/.
+4. Start the application:
    ```bash
    python main.py
 
 ## 🛠 Technologies Used
 
-- **Programming Language**: Python
-- **Database**: MongoDB
-- **Web Framework**: Eel
+- **Python**      : The primary programming language used for backend development.
+- **MongoDB**     : A NoSQL database used for storing user and book data.
+- **Eel**         : A Python library for creating simple Electron-like desktop apps with HTML/JS frontends.
+- **HTML/CSS**    : For structuring and styling the web interface.
+- **JavaScript**  : For client-side scripting and interactivity.
+- **Bootstrap**   : A CSS framework for responsive design.
 
 ## 🧩 Object-Oriented Programming Concepts
 ## Key Classes
